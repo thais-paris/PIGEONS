@@ -11,3 +11,9 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.all {
+  height: 100vh;
+  position: relative;
+  overflow: scroll;
+}
