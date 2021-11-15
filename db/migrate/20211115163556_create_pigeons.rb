@@ -5,7 +5,7 @@ class CreatePigeons < ActiveRecord::Migration[6.0]
       t.string :address
       t.text :description
       t.string :breed
-      t.integer :price_day
+      t.float :price_day
 
       t.timestamps
     end
