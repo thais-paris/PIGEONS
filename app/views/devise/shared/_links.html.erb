@@ -1,6 +1,6 @@
 
-<div class="d-flex justify-content-end">
-    <div class="w-100 text-warning">
+<div class="shared-links d-flex justify-content-end">
+    <div class="text-warning d-flex flex-column align-items-end">
       <%- if controller_name != 'sessions' %>
         <%= link_to "M'identifier", new_session_path(resource_name), class:"shared-link" %><br />
       <% end %>
@@ -10,7 +10,7 @@
       <% end %>
 
       <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-        <%= link_to "Mot de passe oublié?", new_password_path(resource_name), class:"shared-link" %><br />
+        <%= link_to "J'ai oublié mon mot de passe", new_password_path(resource_name), class:"shared-link" %><br />
       <% end %>
 
       <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
