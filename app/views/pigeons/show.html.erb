@@ -1,0 +1,10 @@
+<h1><%= @pigeon.name %></h1>
+
+<div>
+   <p><%= @pigeon.address %></p>
+   <p><%= @pigeon.description %></p>
+   <p><%= @pigeon.price_day %></p>
+   <p><%= @pigeon.breed %></p>
+   <%= link_to "edit", edit_pigeon_path(@pigeon) %>
+    <%= link_to "delete", pigeon_path(@pigeon), method: :delete %>
+</div>
