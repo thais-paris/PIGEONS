@@ -4,6 +4,7 @@
   <%= f.input :address %>
   <%= f.input :description %>
   <%= f.input :price_day %>
-  <%= f.association :breed %>
+  <%= f.input :breed, :collection => @breeds %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit "Submit Pigeon", class: "btn btn-fl" %>
 <% end %>

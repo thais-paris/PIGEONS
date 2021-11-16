@@ -10,7 +10,7 @@
   <%= f.text_field :description %>
   <%= f.label :price_day %>
   <%= f.text_field :price_day %>
-  <%= f.label :breed %>
+  <%= f.label :breed, :collection => @breeds %>
   <%= f.text_field :breed %>
   <%= f.submit %>
 <% end %>
