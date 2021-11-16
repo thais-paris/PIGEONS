@@ -1,5 +1,5 @@
 
-<div class="container mt-4 px-5">
+<div class="container mt-4 p-5">
   <h2>Créez votre profil</h2>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
@@ -31,9 +31,11 @@
     </div>
 
     <div class="form-actions d-flex justify-content-end">
-      <%= f.button :submit, "On y va!", class:'btn btn-warning' %>
+      <div class='d-flex flex-column align-items-end'>
+        <%= f.button :submit, "On y va!", class:'btn btn-warning mb-2' %>
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
   <% end %>
 
-  <%= render "devise/shared/links" %>
 </div>
