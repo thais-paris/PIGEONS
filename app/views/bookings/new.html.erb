@@ -1,0 +1,9 @@
+<%= simple_form_for @booking do |f| %>
+  <%= f.input :address %>
+  <%= f.input :date %>
+  <%= f.input :message %>
+  <%= f.input :recipient_name %>
+  <%= f.input :option_droppings %>
+  <%= f.input :option_cooing %>
+  <%= f.submit "Submit Booking", class: "btn btn-fl" %>
+<% end %>

@@ -1,0 +1,10 @@
+<div>
+   <p><%= @booking.address %></p>
+   <p><%= @booking.date %></p>
+   <p><%= @booking.message %></p>
+   <p><%= @booking.recipient_name %></p>
+   <p><%= @booking.option_droppings %></p>
+   <p><%= @booking.option_cooing %></p>
+   <%= link_to "edit", edit_booking_path(@booking) %>
+    <%= link_to "delete", booking_path(@booking), method: :delete %>
+</div>
