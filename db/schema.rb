@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_16_150644) do
+ActiveRecord::Schema.define(version: 2021_11_16_161243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 2021_11_16_150644) do
     t.date "date"
     t.text "message"
     t.string "recipient_name"
-    t.boolean "option_droppings"
-    t.boolean "option_cooing"
+    t.boolean "option_droppings", default: false
+    t.boolean "option_cooing", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
