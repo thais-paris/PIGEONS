@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PIGEONS</title>
+    <title>Un pigeon poour chaque occasion</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'logo.png' %>
 
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+
+    <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload", defer: true %>
   </head>
 
   <body>
+    <%= render "navbar" %>
     <%= yield %>
+    <%= render "footer" %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
   </body>
