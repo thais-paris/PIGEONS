@@ -1,41 +1,7 @@
 
 <div class="container mt-4 p-5">
   <h2>Créez votre profil</h2>
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
 
-    <div class="form-inputs">
-      <%= f.input :first_name,
-                  label: 'Prénom',
-                  required: true %>
-      <%= f.input :last_name,
-                  label: 'Nom de famille',
-                  required: true %>
-      <%= f.input :username,
-                  label: 'Pseudo',
-                  required: true %>
-      <%= f.input :email,
-                  label: 'Adresse mail',
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" }%>
-      <%= f.input :password,
-                  label: 'Mot de passe',
-                  required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  label: 'Confirmation du mot de passe',
-                  required: true,
-                  input_html: { autocomplete: "new-password" } %>
-    </div>
-
-    <div class="form-actions d-flex justify-content-end">
-      <div class='d-flex flex-column align-items-end'>
-        <%= f.button :submit, "On y va!", class:'btn btn-warning mb-2' %>
-        <%= render "devise/shared/links" %>
-      </div>
-    </div>
-  <% end %>
+  <%= render 'reg-form' %>
 
 </div>
