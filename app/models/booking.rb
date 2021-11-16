@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
 
-  validates :adress, presence: true
+  validates :address, presence: true
   validates :date, presence: true
   validates :message, presence: true
   validates :recipient_name, presence: true

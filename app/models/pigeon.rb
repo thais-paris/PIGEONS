@@ -4,7 +4,7 @@ class Pigeon < ApplicationRecord
   belongs_to :user
 
   validates :name, presence: true
-  validates :adress, presence: true
+  validates :address, presence: true
   validates :description, presence: true
   validates :price_day, presence: true
   validates :breed, inclusion: { in: BREEDS }
