@@ -1,0 +1,8 @@
+<h1>Pigeons libres</h1>
+
+<p><%= @date %> </p>
+<p><%= @address %></p>
+
+<% @pigeons.each do |pigeon|  %>
+  <p><%= pigeon.name %> <%= link_to "Selection", new_booking_path(pigeon,@date,@address) %> </p>
+<% end %>

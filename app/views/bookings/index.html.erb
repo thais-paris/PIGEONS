@@ -1,0 +1,27 @@
+<div class="container py-5">
+  <h1 class="mb-2">Liste des bookings</h1>
+
+  <div class="row">
+    <% @bookings.each do |booking| %>
+      <div class="col-4">
+        <div class="card mt-4">
+          <div class="card-body">
+            <h5 class="card-title">Client - <%= booking.user.first_name %> <%= booking.user.last_name %></h5>
+            <h6 class="card-subtitle my-2 text-muted">Pour : <%= booking.recipient_name %></h6>
+            <p class="card-text">
+              Pigeon : <%= booking.pigeon.name %>
+            </p>
+            <p class="card-text">
+              <%= booking.date.day %>/<%= booking.date.month %>/<%= booking.date.year %>
+            </p>
+            <p class="card-text">
+              <%= booking.address %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to 'Accueil', root_path, class: 'btn btn-primary mt-5' %>
+</div>

@@ -1,0 +1,9 @@
+<h1>Modification du booking</h1>
+
+ <%= simple_form_for @pigeon do |f| %>
+   <%= f.input :message %>
+   <%= f.input :recipient_name %>
+   <%= f.input :option_droppings %>
+   <%= f.input :option_cooing %>
+   <%= f.submit %>
+ <% end %>
