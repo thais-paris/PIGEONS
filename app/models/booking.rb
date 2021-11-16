@@ -1,4 +1,5 @@
 class Booking < ApplicationRecord
+
   validates :adress, presence: true
   validates :date, presence: true
   validates :message, presence: true, allow_blank: false
