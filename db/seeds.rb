@@ -82,8 +82,8 @@ mypigeon4 = Pigeon.new(
 mypigeon4.save!
 
 mybooking = Booking.new(
-  user_id: dianaprince.id,
-  pigeon_id: mypigeon2.id,
+  user_id: User.third.id,
+  pigeon_id: Pigeon.second.id,
   address: "#{Faker::Address.street_address}, #{Faker::Address.city}, #{Faker::Address.country}",
   date: Time.now,
   recipient_name: 'Augustin Lovekind',
