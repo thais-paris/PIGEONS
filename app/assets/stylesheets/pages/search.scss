@@ -1,0 +1,17 @@
+.pigeon-avatar {
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat
+}
+
+.pigeon-item {
+  position: relative
+}
+
+.pigeon-avatar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
