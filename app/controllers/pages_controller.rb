@@ -3,4 +3,14 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def form
+  end
+
+  def search
+    @date = params[:date]
+    @address = params[:address]
+    # limiter aux pigeons qui n'ont pas la date dans booking sur un booking validé
+    @pigeons = Pigeon.all
+  end
 end

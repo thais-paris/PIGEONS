@@ -1,0 +1,10 @@
+<h1>Pigeons libres</h1>
+
+<p><%= @date %> </p>
+<p><%= @address %></p>
+
+<% @pigeons.each do |pigeon|  %>
+  <p><%= pigeon.name %> - <%= pigeon.price_day %>€ -  <%= link_to "Selection", new_booking_path(pigeon: pigeon,date: @date,address: @address) %></p>
+  <p>Espèce : <%= pigeon.breed.capitalize %>. <%= pigeon.description %></p>
+
+<% end %>
