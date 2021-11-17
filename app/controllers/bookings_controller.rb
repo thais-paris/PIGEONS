@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def new
@@ -18,7 +19,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     authorize @booking
-    @booking.pigeon = Pigeon.find(params[:pigeon_id])
+    @booking.pigeon = Pigeon.find(params[:pigeon])
     @booking.user = current_user
     @booking.date = params[:date]
     @booking.address = params[:address]
