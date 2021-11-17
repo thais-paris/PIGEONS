@@ -1,10 +1,31 @@
-<%= simple_form_for @booking do |f| %>
-  <%= f.input :recipient_name %>
-  <%= f.input :message %>
-  <%= f.input :option_droppings %>
-  <%= f.input :option_cooing %>
-  <%= hidden_field_tag :date, @date %>
-  <%= hidden_field_tag :address, @address %>
-  <%= hidden_field_tag :pigeon, @pigeon %>
-  <%= f.submit "Envoyer" %>
-<% end %>
+<div class="container mt-4 fullheight">
+  <div class="row">
+    <div class="col-12 col-sm-10 col-lg-8 col-xl-6 m-auto">
+
+    <h1>Finalisez votre message...</h1>
+
+      <%= simple_form_for @booking do |f| %>
+
+        <div class="form-inputs">
+          <%= f.input :recipient_name, label: 'Nom du destinataire' %>
+          <%= f.input :message, label: 'Texte du message', as: :text %>
+
+          <div class="form-group">
+            <%= f.input :option_droppings, label: "Accompagner d'un roucoulement" %>
+            <%= f.input :option_cooing, label: "Accompagner d'une fiente" %>
+          </div>
+
+          <%= hidden_field_tag :date, @date %>
+          <%= hidden_field_tag :address, @address %>
+          <%= hidden_field_tag :pigeon, @pigeon %>
+        </div>
+
+        <div class="form-actions d-flex justify-content-end">
+          <%= f.submit "Envoyer mon pigeon", class:'btn btn-warning' %>
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

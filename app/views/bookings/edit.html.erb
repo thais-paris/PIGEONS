@@ -1,9 +1,21 @@
-<h1>Modification du booking</h1>
+<div class="container fullheight mt-4">
+  <div class="row">
+    <div class="col-12 col-sm-10 col-lg-8 col-xl-6 m-auto">
 
- <%= simple_form_for @booking do |f| %>
-   <%= f.input :message %>
-   <%= f.input :recipient_name %>
-   <%= f.input :option_droppings %>
-   <%= f.input :option_cooing %>
-   <%= f.submit %>
- <% end %>
+      <h1>Modification du booking</h1>
+
+      <%= simple_form_for @booking do |f| %>
+        <%= f.input :recipient_name, label: 'Nom du destinataire' %>
+        <%= f.input :message, label: 'Texte du message', as: :text %>
+        <%= f.input :option_droppings, label: "Accompagner d'un roucoulement" %>
+        <%= f.input :option_cooing, label: "Accompagner d'une fiente" %>
+
+        <div class="d-flex w-100 justify-content-end">
+          <%= f.submit 'Modifier mon pigeon', class: 'btn btn-warning' %>
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

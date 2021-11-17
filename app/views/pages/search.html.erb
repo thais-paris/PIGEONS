@@ -1,10 +1,24 @@
-<h1>Pigeons libres</h1>
+<div class="container mt-4 fullheight">
+  <h1 class='mb-3'>Pigeons disponibles...</h1>
 
-<p><%= @date %> </p>
-<p><%= @address %></p>
+  <p><%= @date %> </p>
+  <p><%= @address %></p>
 
-<% @pigeons.each do |pigeon|  %>
-  <p><%= pigeon.name %> - <%= pigeon.price_day %>€ -  <%= link_to "Selection", new_booking_path(pigeon: pigeon,date: @date,address: @address) %></p>
-  <p>Espèce : <%= pigeon.breed.capitalize %>. <%= pigeon.description %></p>
+  <% @pigeons.each do |pigeon|  %>
 
-<% end %>
+    <div class="p-3 bg-white rounded mb-3">
+      <div class='d-flex align-items-center mb-4'>
+        <h4 class='me-2 mb-0'><%= pigeon.name %></h4>
+        <h5 class= 'me-2 mb-0 text-secondary'> - <%= pigeon.price_day %> € / message</h5>
+
+      </div>
+      <p><strong>Espèce :</strong> <%= pigeon.breed.capitalize %>.</p>
+      <p><%= pigeon.description %></p>
+      <div class="d-flex justify-content-end">
+        <%= link_to "Choisir ce pigeon", new_booking_path(pigeon: pigeon, date: @date, address: @address), class: 'btn btn-warning' %>
+      </div>
+    </div>
+
+
+  <% end %>
+</div>
