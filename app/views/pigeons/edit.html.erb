@@ -1,16 +1,11 @@
 <h1>You want to edit this pigeon :</h1>
 <h2><%= @pigeon.name %></h2>
 
-<%= form_for(@pigeon) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.label :price_day %>
-  <%= f.text_field :price_day %>
-  <%= f.label :breed, :collection => @breeds %>
-  <%= f.text_field :breed %>
-  <%= f.submit %>
+<%= simple_form_for @pigeon do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :description %>
+  <%= f.input :price_day %>
+  <%= f.input :breed, collection: Pigeon::BREEDS %>
+  <%= f.submit "Valider", class: "btn btn-fl" %>
 <% end %>

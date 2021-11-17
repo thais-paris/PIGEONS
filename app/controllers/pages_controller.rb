@@ -11,6 +11,6 @@ class PagesController < ApplicationController
     @date = params[:date]
     @address = params[:address]
     # limiter aux pigeons qui n'ont pas la date dans booking sur un booking validé
-    @pigeons = Pigeon.all
+    @pigeons = Pigeon.near(@address, 10)
   end
 end
