@@ -11,7 +11,14 @@
 
   <% @pigeons.each do |pigeon|  %>
 
-    <div class="p-3 bg-white rounded mb-3">
+    <% if pigeon.photo.attached? %>
+      <% image_string = "url('#{cl_image_path pigeon.photo.key, width: 500, crop: :fill}')" %>
+    <% else %>
+      <% image_string = "url('#{image_path("pigeon-rect.png")}')" %>
+    <% end %>
+
+    <div class="pigeon-item p-3 bg-white rounded mb-3">
+      <div class='pigeon-avatar rounded-circle' style='background-image: <%= image_string %>'></div>
       <div class='d-flex align-items-center mb-4'>
         <h4 class='me-2 mb-0'><%= pigeon.name %></h4>
         <h5 class= 'me-2 mb-0 text-secondary'> - <%= pigeon.price_day %> € / message</h5>
