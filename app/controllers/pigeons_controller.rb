@@ -17,6 +17,7 @@ class PigeonsController < ApplicationController
   def create
     @pigeon = Pigeon.new(pigeon_params)
     authorize @pigeon
+    @pigeon.user = current_user
     @pigeon.save
     redirect_to pigeon_path(@pigeon)
   end
@@ -38,7 +39,7 @@ class PigeonsController < ApplicationController
   def destroy
     @pigeon = Pigeon.find(params[:id])
     authorize @pigeon
-    @pigeon.destroy(pigeon_params)
+    @pigeon.destroy
   end
 
   private
