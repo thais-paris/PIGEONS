@@ -1,7 +1,26 @@
-<h1>Données du recherche</h1>
+<div class="container mt-4 fullheight">
+  <div class="row">
+    <div class="col-12 col-sm-10 col-lg-8 col-xl-6 m-auto">
 
-<form action="search">
-  <input type="text" name="address" placeholder="Adresse?">
-  <input type="date" name="date" placeholder="Date?">
-  <input type="submit">
-</form>
+      <h1 class='mb-3'>Envoyer un pigeon!</h1>
+
+      <form action="search">
+        <div class="form-inputs">
+          <div class="form-group mb-3">
+            <label for="address" class='mb-2'>A quelle adresse voulez-vous envoyer votre pigeon?</label>
+            <input type="text" name="address" placeholder="Adresse" class='form-control'>
+          </div>
+          <div class="form-group mb-3">
+            <label for="date" class='mb-2'>Quand voulez-vous qu'il arrive?</label>
+            <input type="date" name="date" placeholder="Date" class='form-control'>
+          </div>
+        </div>
+
+        <div class="form-actions d-flex justify-content-end">
+          <input type="submit" class='btn btn-warning'>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
