@@ -12,8 +12,16 @@
     <ul class="navbar-nav mr-auto w-100 d-flex justify-content-between">
       <li class="nav-item active d-flex align-items-center">
         <% if user_signed_in? %>
-          <%= link_to "Mes pigeons", "/pigeons", class: "nav-link" %>
-          <%= link_to "Mes messages", "/bookings", class: "nav-link" %>
+          <% if current_user.pigeons == [] %>
+            <%= link_to 'Nouveau pigeon', new_pigeon_path, class: 'nav-link' %>
+          <% else %>
+            <%= link_to "Mes pigeons", "/pigeons", class: "nav-link" %>
+          <% end %>
+          <% if current_user.bookings == [] %>
+            <%= link_to 'Nouveau message', pages_form_path, class: 'nav-link' %>
+          <% else %>
+            <%= link_to "Mes messages", "/bookings", class: "nav-link" %>
+          <% end %>
         <% end %>
       </li>
       <li class="nav-item d-flex dropdown">
