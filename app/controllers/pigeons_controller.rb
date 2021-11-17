@@ -11,7 +11,6 @@ class PigeonsController < ApplicationController
   def new
     @pigeon = Pigeon.new
     authorize @pigeon
-    @breeds = ['ramier', 'biset', 'vert', 'victoria', 'frisé', 'bleu couronné', 'ailes de bronze', 'jacobin', 'indien', 'vert africain', 'plumifère', 'nicobar' ]
   end
 
   def create
@@ -31,8 +30,6 @@ class PigeonsController < ApplicationController
     @pigeon = Pigeon.find(params[:id])
     authorize @pigeon
     @pigeon.update(pigeon_params)
-    @breeds = ['ramier', 'biset', 'vert', 'victoria', 'frisé', 'bleu couronné', 'ailes de bronze', 'jacobin', 'indien', 'vert africain', 'plumifère', 'nicobar' ]
-
     redirect_to pigeon_path(@pigeon)
   end
 
