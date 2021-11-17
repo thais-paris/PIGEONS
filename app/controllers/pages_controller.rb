@@ -12,5 +12,11 @@ class PagesController < ApplicationController
     @address = params[:address]
     # limiter aux pigeons qui n'ont pas la date dans booking sur un booking validé
     @pigeons = Pigeon.near(@address, 10)
+    @markers = @pigeons.geocoded.map do |pigeon|
+      {
+        lat: pigeon.latitude,
+        lng: pigeon.longitude
+      }
+    end
   end
 end
