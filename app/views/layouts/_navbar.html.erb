@@ -16,12 +16,12 @@
             <%= link_to 'Nouveau pigeon', new_pigeon_path, class: 'nav-link' %>
           <% else %>
             <%= link_to "Mes pigeons", "/pigeons", class: "nav-link" %>
-            <%= link_to 'Mes demandes', pending_bookings_path, class: 'nav-link' %>
+            <%= link_to 'Demandes', pending_bookings_path, class: 'nav-link' %>
           <% end %>
           <% if current_user.bookings == [] %>
             <%= link_to 'Nouveau message', pages_form_path, class: 'nav-link' %>
           <% else %>
-            <%= link_to "Mes messages", "/bookings", class: "nav-link" %>
+            <%= link_to "Messages", "/bookings", class: "nav-link" %>
           <% end %>
         <% end %>
       </li>
