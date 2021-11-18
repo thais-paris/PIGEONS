@@ -18,19 +18,26 @@
     <% end %>
 
     <div class="pigeon-item p-3 bg-white rounded mb-3">
-      <div class='pigeon-avatar rounded-circle' style='background-image: <%= image_string %>'></div>
-      <div class='d-flex align-items-center mb-4'>
-        <h4 class='me-2 mb-0'><%= pigeon.name %></h4>
-        <h5 class= 'me-2 mb-0 text-secondary'> - <%= pigeon.price_day %> € / message</h5>
 
+      <div class="d-flex align-items-center">
+        <div class="flex-grow-1">
+          <h4 class='mb-3'><%= pigeon.name %></h4>
+          <P class='mb-0'><span class='fw-bold'>Prix /jour: </span><span class='text-secondary'><%= pigeon.price_day %> €</span></p>
+          <p class='mb-0'><span class='fw-bold'>Espèce: </span><span class='text-secondary'><%= pigeon.breed %></p>
+          <p class='mb-0'><span class='fw-bold'>Propriétaire: </span><span class='text-secondary'><%= pigeon.user.username %></p>
+        </div>
+        <div class='pigeon-avatar' style='background-image: <%= image_string %>'></div>
       </div>
-      <p><strong>Espèce :</strong> <%= pigeon.breed.capitalize %>.</p>
-      <p><%= pigeon.description %></p>
-      <div class="d-flex justify-content-end">
-        <%= link_to "Choisir ce pigeon", new_booking_path(pigeon: pigeon, date: @date, address: @address), class: 'btn btn-warning' %>
-      </div>
+
+      <div class="d-flex align-items-center mt-4 mb-0">
+          <div class="flex-grow-1">
+            <p class='mb-0'>"
+              <%= pigeon.description %>
+            </p>
+          </div>
+          <%= link_to "Choisir ce pigeon", new_booking_path(pigeon: pigeon, date: @date, address: @address), class: "text-warning" %>
+        </div>
     </div>
-
 
   <% end %>
 </div>
