@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :pigeons
   has_many :bookings
-
+  has_one_attached :photo
+  
   # has_many :booked_pigeons, through: :bookings, source: :pigeon
 end
