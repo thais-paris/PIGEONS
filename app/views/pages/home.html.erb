@@ -9,7 +9,11 @@
   </div>
 </div>
 
-
-<div class="container fullheight mt-4">
-  <p>Envoyez dès maintenant votre pigeon.</p>
+<div class="container fullheight mt-3" >
+    <h4 class='mb-3' >Pigeons les plus réservés</h4>
+  <div class="pigeons justify-content-center mb-3" >
+    <% @top_3.each do |top_pigeon| %>
+      <%= render 'pigeons/pigeon_card', pigeon: top_pigeon %>
+    <% end %>
+  </div>
 </div>
