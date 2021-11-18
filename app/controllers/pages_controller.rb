@@ -16,7 +16,7 @@ class PagesController < ApplicationController
       {
         lat: pigeon.latitude,
         lng: pigeon.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { pigeon: pigeon }),
+        info_window: render_to_string(partial: "info_window", locals: { pigeon: pigeon, date: @date, address: @address}),
         image_url: helpers.asset_url("bird.png")
       }
     end

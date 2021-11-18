@@ -1,2 +1,3 @@
-<h2><%= pigeon.name %></h2>
+<h6><%= pigeon.name %> <%= pigeon.price_day %> €</h6>
 <p><%= pigeon.address %></p>
+<%= link_to "Choisir", new_booking_path(pigeon: pigeon, date: date, address: address), class: 'btn btn-warning' %>
