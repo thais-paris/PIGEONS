@@ -1,6 +1,6 @@
 class PigeonsController < ApplicationController
   def index
-    @pigeons = policy_scope(Pigeon)
+    @pigeons = policy_scope(Pigeon).where(user_id: current_user.id)
   end
 
   def show
