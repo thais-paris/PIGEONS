@@ -1,20 +1,15 @@
 .pigeons {
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
-@media (max-width: 1200px) {
-  .pigeons {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-@media (max-width: 992px) {
+@media (max-width: 1400px) {
   .pigeons {
     grid-template-columns: 1fr 1fr;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .pigeons {
     grid-template-columns: 1fr;
   }
