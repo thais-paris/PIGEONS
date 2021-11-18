@@ -23,6 +23,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.date = params[:date]
     @booking.address = params[:address]
+    @booking.status = 'pending'
     @booking.save
     redirect_to booking_path(@booking)
   end
