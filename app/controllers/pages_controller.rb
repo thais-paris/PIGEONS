@@ -20,7 +20,7 @@ class PagesController < ApplicationController
           partial: "info_window",
           locals: { pigeon: pigeon, date: @date, address: @address }
         ),
-        image_url: helpers.asset_url("bird.png") # ,
+        image_url: helpers.asset_url("logo.png") # ,
         # image_url_recipient: helpers.asset_url("envelope.png")
       }
     end
