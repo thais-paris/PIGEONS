@@ -32,7 +32,9 @@
         <div class="d-flex flex-column justify-content-end text-end">
           <%= link_to "Modifier mon envoi", edit_booking_path(@booking), class:'text-warning' %>
           <%# Annulation a coder %>
-          <%= link_to "Annuler mon pigeon", booking_path(@booking), method: :delete, class:'text-warning' %>
+          <%= link_to "Annuler mon pigeon", booking_path(@booking), method: :delete,
+                                                                    class:'text-warning',
+                                                                    data: { confirm: 'Etes-vous sûr de vouloir supprimer ce message?'} %>
         </div>
       </div>
     </div>
