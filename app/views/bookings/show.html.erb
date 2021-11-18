@@ -3,8 +3,8 @@
   <div class="row">
     <div class="col-12 col-lg-10 col-xl-8 m-auto">
 
-      <h1 class='mb-3'>Félicitations !</h1>
-      <p> Votre réservation est en attente de validation par l'éleveur</p>
+      <h1 class='mb-0'>Félicitations !</h1>
+      <p class='fs-5 fw-light'> Votre réservation est en attente de validation par l'éleveur</p>
 
       <div class='bg-white p-4 rounded mb-2 text-center'>
         <p class='my-1'><strong>Adresse du destinataire: </strong><%= @booking.address %></p>
@@ -26,9 +26,16 @@
         </div>
       <% end %>
       <div class="d-flex justify-content-center w-100 p-3">
-        <%= link_to "Modifier mon envoi", edit_booking_path(@booking), class:'btn btn-warning m-2' %>
-        <%# Annulation a coder %>
-        <%= link_to "Annuler mon pigeon", booking_path(@booking), method: :delete, class:'btn btn-secondary m-2' %>
+        <%= link_to "Retour à l'accueil", root_path, class:'btn btn-warning m-2' %>
+      </div>
+      <div class="d-flex justify-content-end">
+        <div class="d-flex flex-column justify-content-end text-end">
+          <%= link_to "Modifier mon envoi", edit_booking_path(@booking), class:'text-warning' %>
+          <%# Annulation a coder %>
+          <%= link_to "Annuler mon pigeon", booking_path(@booking), method: :delete,
+                                                                    class:'text-warning',
+                                                                    data: { confirm: 'Etes-vous sûr de vouloir supprimer ce message?'} %>
+        </div>
       </div>
     </div>
   </div>
