@@ -1,7 +1,11 @@
 <div class="container fullheight mt-4">
-  <h1 class='mb-4'>Mes pigeons</h1>
 
-  <div class="pigeons justify-content-center mb-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Mes pigeons</h1>
+    <%= link_to 'Nouveau pigeon', new_pigeon_path, class: 'btn btn-warning' %>
+  </div>
+
+    <div class="pigeons justify-content-center mb-4">
 
     <% @pigeons.each do |pigeon| %>
 
@@ -27,4 +31,9 @@
     <% end %>
 
   </div>
+
+  <div class="d-flex w-100 justify-content-end mb-4">
+    <%= link_to 'accueil', root_path, class:'text-warning' %>
+  </div>
+
 </div>
