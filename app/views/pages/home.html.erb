@@ -10,6 +10,9 @@
 </div>
 
 
-<div class="container fullheight mt-4">
-  <p>Envoyez dès maintenant votre pigeon.</p>
+  <h3>Découvrez nos 3 pigeons les plus bookés :</h3>
+<div class="pigeons justify-content-center mb-4">
+  <% @top_3.each do |top_pigeon| %>
+    <%= render 'pigeons/pigeon_card', pigeon: top_pigeon %>
+  <% end %>
 </div>

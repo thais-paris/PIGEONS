@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
+    @top_3 = Pigeon.left_joins(:bookings).group('id').order('COUNT(bookings.id) DESC').limit(3)
   end
 
   def form
