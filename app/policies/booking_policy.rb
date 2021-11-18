@@ -5,6 +5,10 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
+  def pending?
+    true
+  end
+
   def show?
     record.user == user
   end
