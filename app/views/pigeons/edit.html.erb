@@ -1,12 +1,12 @@
-<h1>You want to edit this pigeon :</h1>
-<h2><%= @pigeon.name %></h2>
+<div class="container mt-4 p-5 fullheight">
+  <div class="row">
+   <div class="col-12 col-sm-10 col-lg-8 col-xl-6 m-auto">
 
-<%= simple_form_for @pigeon do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :description %>
-  <%= f.input :price_day %>
-  <%= f.input :breed, collection: Pigeon::BREEDS %>
-  <%= f.input :photo %>
-  <%= f.submit "Valider", class: "btn btn-fl" %>
-<% end %>
+    <h1>Editer le pigeon </h1>
+    <h3 class='text-secondary mb-4'><%= @pigeon.name %></h3>
+
+    <%= render "form", pigeon: @pigeon %>
+
+   </div>
+  </div>
+</div>

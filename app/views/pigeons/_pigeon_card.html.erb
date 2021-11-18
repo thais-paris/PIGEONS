@@ -1,0 +1,22 @@
+<% if pigeon.photo.attached? %>
+  <% image_string = "url('#{cl_image_path pigeon.photo.key, width: 500, crop: :fill}')" %>
+<% else %>
+    <% image_string = "url('#{image_path('pigeon-rect.png')}')" %>
+<% end %>
+
+<div class="pigeon-card d-flex flex-column w-100 bg-white rounded p-4">
+
+  <%= link_to pigeon_path(pigeon) do %>
+    <h5 class='mb-0 text-black'><%= pigeon.name %></h5>
+  <% end %>
+
+  <div class='pigeon-image w-100 rounded my-4' style='background-image: <%= image_string %>'></div>
+  <p><strong>Race: </strong><%= pigeon.breed %></p>
+  <div class="flex-grow-1">
+    <p><%= pigeon.description %></p>
+  </div>
+  <div class="d-flex justify-content-between align-items-center">
+    <%= link_to "Editer", edit_pigeon_path(pigeon), class:'text-warning' %>
+    <h5 class='mb-0'><%= pigeon.price_day %> €</h5>
+  </div>
+</div>

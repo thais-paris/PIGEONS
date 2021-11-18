@@ -3,6 +3,12 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking).order(created_at: :desc)
   end
 
+  def pending
+    @bookings = policy_scope(Booking.joins(:pigeon).where('pigeons.user_id = ?', current_user.id))
+    # @bookings = policy_scope(current_user.booked_pigeons)
+    authorize @bookings
+  end
+
   def show
     @booking = Booking.find(params[:id])
     authorize @booking
@@ -23,6 +29,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.date = params[:date]
     @booking.address = params[:address]
+    @booking.status = 'pending'
     @booking.save
     redirect_to booking_path(@booking)
   end

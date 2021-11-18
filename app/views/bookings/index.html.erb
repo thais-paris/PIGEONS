@@ -1,27 +1,58 @@
-<div class="container py-5">
-  <h1 class="mb-2">Liste des bookings</h1>
+<div class="container mt-4 fullheight">
 
-  <div class="row">
-    <% @bookings.each do |booking| %>
-      <div class="col-4">
-        <div class="card mt-4">
-          <div class="card-body">
-            <h5 class="card-title">Client - <%= booking.user.first_name %> <%= booking.user.last_name %></h5>
-            <h6 class="card-subtitle my-2 text-muted">Pour : <%= booking.recipient_name %></h6>
-            <p class="card-text">
-              Pigeon : <%= booking.pigeon.name %>
-            </p>
-            <p class="card-text">
-              <%= booking.date.day %>/<%= booking.date.month %>/<%= booking.date.year %>
-            </p>
-            <p class="card-text">
-              <%= booking.address %>
-            </p>
-          </div>
-        </div>
-      </div>
-    <% end %>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Mes messages</h1>
+    <%= link_to "Nouveau message", new_booking_path, class: "btn btn-warning" %>
   </div>
 
-  <%= link_to 'Accueil', root_path, class: 'btn btn-primary mt-5' %>
+  <div class="my-4">
+
+    <% @bookings.each do |booking| %>
+
+      <div class="bg-white rounded w-100 p-3 mb-2">
+
+        <% if booking.pigeon.photo.attached? %>
+          <% image_string = "url('#{cl_image_path booking.pigeon.photo.key, width: 500, crop: :fill}')" %>
+        <% else %>
+          <% image_string = "url('#{image_path("pigeon-rect.png")}')" %>
+        <% end %>
+
+        <div class="d-flex w-100 align-items-center">
+          <div class="flex-grow-1">
+            <h4 class='mb-3'><span>Pour </span><span class='text-secondary'><%= booking.recipient_name %></span></h4>
+            <P class='mb-0'><span class='fw-bold'>Transporté par </span><span class='text-secondary'><%= booking.pigeon.name %></span></p>
+            <p class='mb-0'><span class='fw-bold'>Sera livré le </span><span class='text-secondary'><%= booking.date.day %>/<%= booking.date.month %>/<%= booking.date.year %></span></p>
+            <p class='mb-0'><span class='fw-bold'>Au </span><span class='text-secondary'><%= booking.address %></span></p>
+          </div>
+
+          <div class='pigeon-avatar' style='background-image: <%= image_string %>'>
+          </div>
+
+        </div>
+
+        <div class="d-flex align-items-center mt-4 mb-2">
+          <div class="flex-grow-1">
+            <p class='mb-0'>" <%= booking.message %> "
+              <% if booking.option_cooing %>
+                <i class="fas fa-heart text-danger"></i>
+              <% end %>
+              <% if booking.option_droppings %>
+                <i class="fas fa-splotch"></i>
+              <% end %>
+            </p>
+          </div>
+          <div class='d-flex'>
+            <div><%= link_to "Editer", edit_booking_path(booking), class: "text-warning me-3" %></div>
+            <div><%= link_to "Supprimer", booking_path(booking), method: :delete, class: "text-warning" %></div>
+          </div>
+        </div>
+
+      </div>
+
+    <% end %>
+
+    <div class="d-flex w-100 justify-content-end mt-3">
+      <%= link_to 'Accueil', root_path, class: 'btn btn-warning' %>
+    </div>
+  </div>
 </div>

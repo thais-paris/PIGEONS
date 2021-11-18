@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
+    @top_3 = Pigeon.left_joins(:bookings).group('id').order('COUNT(bookings.id) DESC').limit(3)
   end
 
   def form
@@ -16,10 +17,13 @@ class PagesController < ApplicationController
       {
         lat: pigeon.latitude,
         lng: pigeon.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { pigeon: pigeon }),
-        image_url: helpers.asset_url("bird.png")
+        info_window: render_to_string(
+          partial: "info_window",
+          locals: { pigeon: pigeon, date: @date, address: @address }
+        ),
+        image_url: helpers.asset_url("logo.png") # ,
+        # image_url_recipient: helpers.asset_url("envelope.png")
       }
     end
-    # raise
   end
 end

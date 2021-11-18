@@ -1,0 +1,16 @@
+<%= simple_form_for @pigeon do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :name, label: "Nom du pigeon" %>
+    <%= f.input :address, label: "Adresse" %>
+    <%= f.input :description, label: "Description" %>
+    <%= f.input :price_day, label: "prix par course" %>
+    <%= f.input :breed, collection: Pigeon::BREEDS, label: "Espèce" %>
+    <%= f.input :photo, as: :file, label: "Ajouter une photo" %>
+  </div>
+
+  <div class="form-actions w-100 d-flex justify-content-end">
+    <%= f.submit "Enregistrer mon pigeon", class: "btn btn-warning" %>
+  </div>
+
+<% end %>

@@ -1,0 +1,7 @@
+.btn-warning {
+  color: white;
+  &:hover, &:active  {
+    color: white;
+    text-shadow: 0 0 0 rgba(0,0,0,0);
+  }
+}
