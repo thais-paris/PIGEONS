@@ -9,11 +9,41 @@
   </div>
 </div>
 
-<div class="container fullheight mt-3" >
-    <h4 class='mb-3' >Pigeons les plus réservés</h4>
-  <div class="pigeons justify-content-center mb-3" >
-    <% @top_3.each do |top_pigeon| %>
-      <%= render 'pigeons/pigeon_card', pigeon: top_pigeon %>
+<div class="container fullheight mt-4" >
+  <div class="d-flex w-100 justify-content-center">
+    <p class='fs-5 mb-4'>Pigeons les plus réservés</p>
+  </div>
+
+
+  <div class="top-pigeons mb-4">
+
+    <% @top_3.each do |pigeon| %>
+
+      <% if pigeon.photo.attached? %>
+        <% image_string = "url('#{cl_image_path pigeon.photo.key, width: 500, crop: :fill}')" %>
+      <% else %>
+          <% image_string = "url('#{image_path("pigeon-rect.png")}')" %>
+      <% end %>
+
+      <div class="home-pigeon w-100 h-100 rounded bg-white p-3 d-flex flex-column">
+        <h4 class='mb-2'><%= pigeon.name %></h4>
+        <div class='home-pigeon-image rounded' style='background-image: <%= image_string %>'></div>
+        <h6 class='mb-0 my-3'><%= pigeon.breed %></h6>
+        <div class="flex-grow-1">
+          <p class='text-secondary mt-3'>
+            <% if pigeon.description.size > 150 %>
+              <%= pigeon.description[..150] %>...
+            <% else %>
+              <%= pigeon.description %>
+            <% end %>
+          </p>
+        </div>
+        <div class="d-flex justify-content-between">
+          <%= link_to 'voir', pigeon_path(pigeon), class:'text-warning' %>
+          <h6><%= pigeon.price_day %> €</h6>
+        </div>
+      </div>
+
     <% end %>
   </div>
 </div>
