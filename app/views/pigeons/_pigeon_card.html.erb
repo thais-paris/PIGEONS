@@ -1,5 +1,5 @@
 <% if pigeon.photo.attached? %>
-  <% image_string = "url('#{cl_image_path pigeon.photo.key, width: 500, height: 200, crop: :thumb, gravity: :fac}')" %>
+  <% image_string = "url('#{cl_image_path pigeon.photo.key, width: 500, height: 200, crop: :thumb, gravity: :face}')" %>
 <% else %>
     <% image_string = "url('#{image_path('pigeon-rect.png')}')" %>
 <% end %>
