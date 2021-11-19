@@ -30,6 +30,6 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    record.user == user || record.pigeon.user_id == user.id
   end
 end

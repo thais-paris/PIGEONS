@@ -38,11 +38,13 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    raise
     @booking = Booking.find(params[:id])
     authorize @booking
   end
 
   def update
+    raise
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.update(booking_params)
@@ -53,7 +55,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
-    redirect_to bookings_path
+    redirect_to pending_bookings_path
   end
 
   private
