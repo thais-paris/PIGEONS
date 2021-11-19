@@ -1,3 +1,4 @@
+
 <% if @pigeon.photo.attached? %>
   <% image_string = "url('#{cl_image_path @pigeon.photo.key, width: 800, crop: :thumb, gravity: :face}')" %>
 <% else %>
@@ -29,8 +30,6 @@
         </div>
       </div>
     </div>
-
-
   </div>
 
 </div>

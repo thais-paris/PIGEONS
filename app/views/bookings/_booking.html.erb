@@ -1,0 +1,61 @@
+<div class="bg-white rounded w-100 p-3 pb-1 mb-2">
+
+  <% if booking.pigeon.photo.attached? %>
+    <% image_string = "url('#{cl_image_path booking.pigeon.photo.key, width: 500, crop: :fill}')" %>
+  <% else %>
+    <% image_string = "url('#{image_path("pigeon-rect.png")}')" %>
+  <% end %>
+
+  <div class="d-flex w-100 align-items-center">
+    <div class="flex-grow-1">
+      <div class="d-flex w-100 align-items-center mb-3">
+        <h4 class='mb-0'><span>Pour </span><span class='text-secondary'><%= booking.recipient_name %></span></h4>
+
+            <% case booking.status %>
+            <% when 'pending' %>
+              <div class="badge bg-warning ms-4 fw-light">En attente</div>
+            <% when "cancelled" %>
+              <div class="badge bg-danger ms-4 fw-light">Annulée</div>
+            <% when "approved" %>
+              <div class="badge bg-success ms-4 fw-light">En attente</div>
+            <% when "done" %>
+              <div class="badge bg-sedcondary ms-4 fw-light">Effectuée</div>
+            <% end %>
+
+      </div>
+
+      <P class='mb-0'><span class='fw-bold'>Transporté par </span><span class='text-secondary'><%= booking.pigeon.name %></span></p>
+      <p class='mb-0'><span class='fw-bold'>Sera livré le </span><span class='text-secondary'><%= booking.date.day %>/<%= booking.date.month %>/<%= booking.date.year %></span></p>
+      <p class='mb-0'><span class='fw-bold'>Par </span><span class='text-secondary'><%= booking.pigeon.name %>/<%= booking.date.month %>/<%= booking.date.year %></span></p>
+      <p class='mb-0'><span class='fw-bold'>Au </span><span class='text-secondary'><%= booking.address %></span></p>
+    </div>
+
+    <div class='pigeon-avatar' style='background-image: <%= image_string %>'>
+    </div>
+
+  </div>
+
+  <div class="d-flex align-items-center mt-4 mb-2">
+    <div class="flex-grow-1">
+      <% if booking.option_cooing || booking.option_droppings %>
+        <p class='mb-0'> Option(s) demandée(s):
+          <% if booking.option_cooing %>
+            <i class="fas fa-heart text-danger"></i>
+          <% end %>
+          <% if booking.option_droppings %>
+            <i class="fas fa-splotch"></i>
+          <% end %>
+        </p>
+      <% else %>
+        <p>Pas d'options demandées</p>
+      <% end %>
+    </div>
+    <% if booking.status == 'pending' %>
+      <div class='d-flex'>
+        <div><%= link_to "Accepter", edit_booking_path(booking), class: "btn btn-success me-2" %></div>
+        <div><%= link_to "Refuser", booking_path(booking), method: :delete, data: { confirm: "Attention vous annulez une commande, merci de confirmer !" }, class: "btn btn-danger text-white" %></div>
+      </div>
+    <% end %>
+  </div>
+
+</div>

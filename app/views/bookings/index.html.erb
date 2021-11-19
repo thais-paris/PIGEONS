@@ -19,7 +19,19 @@
 
         <div class="d-flex w-100 align-items-center">
           <div class="flex-grow-1">
-            <h4 class='mb-3'><span>Pour </span><span class='text-secondary'><%= booking.recipient_name %></span></h4>
+            <div class="d-flex w-100 align-items-center mb-3">
+              <h4 class='mb-0'><span>Pour </span><span class='text-secondary'><%= booking.recipient_name %></span></h4>
+              <% case booking.status %>
+              <% when 'pending' %>
+                <div class="badge bg-warning ms-4 fw-light">En attente</div>
+              <% when "cancelled" %>
+                <div class="badge bg-danger ms-4 fw-light">Annulée</div>
+              <% when "approved" %>
+                <div class="badge bg-success ms-4 fw-light">En attente</div>
+              <% when "done" %>
+                <div class="badge bg-sedcondary ms-4 fw-light">Effectuée</div>
+              <% end %>
+            </div>
             <P class='mb-0'><span class='fw-bold'>Transporté par </span><span class='text-secondary'><%= booking.pigeon.name %></span></p>
             <p class='mb-0'><span class='fw-bold'>Sera livré le </span><span class='text-secondary'><%= booking.date.day %>/<%= booking.date.month %>/<%= booking.date.year %></span></p>
             <p class='mb-0'><span class='fw-bold'>Au </span><span class='text-secondary'><%= booking.address %></span></p>
