@@ -9,7 +9,7 @@
     <p><strong>Propriétaire : </strong><%= @pigeon.user.username %></p>
     <div class="w-100 d-flex justify-content-end">
       <%= link_to "edit", edit_pigeon_path(@pigeon), class: 'btn btn-warning me-2' %>
-      <%= link_to "delete", pigeon_path(@pigeon), method: :delete, class: 'btn btn-warning' %>
+      <%= link_to "delete", pigeon_path(@pigeon), method: :delete, data: { confirm: "Attention vous supprimez un pigeon. Merci de confirmer !" }, class: 'btn btn-warning' %>
     </div>
   </div>
 </div>
