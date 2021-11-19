@@ -1,11 +1,17 @@
-<h1><%= @pigeon.name %></h1>
-
-<div>
-   <p><%= @pigeon.address %></p>
-   <p><%= @pigeon.description %></p>
-   <p><%= @pigeon.price_day %></p>
-   <p><%= @pigeon.breed %></p>
-   <p><%= cl_image_tag @pigeon.photo.key, height: 300, width: 400, crop: :fill %></p>
-   <%= link_to "edit", edit_pigeon_path(@pigeon) %>
-    <%= link_to "delete", pigeon_path(@pigeon), method: :delete %>
+<h1 class="nom_pigeon"><%= @pigeon.name %></h1>
+<div class="pigeon_card">
+  <%= cl_image_tag @pigeon.photo.key, class: "photo_pigeon" %>
+  <div class="info_pigeon">
+    <p><strong> Adresse : </strong><%= @pigeon.address %></p>
+    <p><strong> Description : </strong><%= @pigeon.description %></p>
+    <p><strong> Prix : </strong><%= @pigeon.price_day %> euro </p>
+    <p><strong> Race : </strong><%= @pigeon.breed %></p>
+    <p><strong>Propriétaire : </strong><%= @pigeon.user.username %></p>
+    <div class="w-100 d-flex justify-content-end">
+      <%= link_to "edit", edit_pigeon_path(@pigeon), class: 'btn btn-warning me-2' %>
+      <%= link_to "delete", pigeon_path(@pigeon), method: :delete, class: 'btn btn-warning' %>
+    </div>
+  </div>
 </div>
+
+<p>   </p>
