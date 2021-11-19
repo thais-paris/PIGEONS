@@ -29,6 +29,10 @@ class BookingPolicy < ApplicationPolicy
     update?
   end
 
+  def update_status?
+    update?
+  end
+
   def update?
     record.user == user || record.pigeon.user_id == user.id
   end
