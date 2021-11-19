@@ -7,8 +7,8 @@
       <%= simple_form_for @booking do |f| %>
         <%= f.input :recipient_name, label: 'Nom du destinataire' %>
         <%= f.input :message, label: 'Texte du message', as: :text %>
-        <%= f.input :option_droppings, label: "Accompagner d'un roucoulement" %>
-        <%= f.input :option_cooing, label: "Accompagner d'une fiente" %>
+        <%= f.input :option_cooing, label: "Accompagner d'un roucoulement" %>
+        <%= f.input :option_droppings, label: "Accompagner d'une fiente" %>
 
         <div class="d-flex w-100 justify-content-end">
           <%= f.submit 'Modifier', class: 'btn btn-warning' %>
