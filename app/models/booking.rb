@@ -2,7 +2,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :pigeon
 
-  STATUS = ['pending', 'cancelled', 'approved']
+  STATUS = ['pending', 'cancelled', 'approved', 'done']
 
   validates :address, presence: true
   validates :date, presence: true

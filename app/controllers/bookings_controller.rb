@@ -5,8 +5,9 @@ class BookingsController < ApplicationController
 
   def pending
     @bookings = policy_scope(Booking.joins(:pigeon).where('pigeons.user_id = ?', current_user.id))
-    # @bookings = policy_scope(current_user.booked_pigeons)
     authorize @bookings
+    # @bookings = policy_scope(current_user.booked_pigeons)
+    @bookings = Booking.joins(:pigeon).where('pigeons.user_id = ?', current_user.id)
   end
 
   def show
