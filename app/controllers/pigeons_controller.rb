@@ -26,6 +26,10 @@ class PigeonsController < ApplicationController
     authorize @pigeon
   end
 
+  def search
+    raise
+  end
+
   def update
     @pigeon = Pigeon.find(params[:id])
     authorize @pigeon
