@@ -6,11 +6,12 @@ class PagesController < ApplicationController
   end
 
   def form
+    @booking = Booking.new
   end
 
   def search
-    @date = params[:date]
-    @address = params[:address]
+    @date = params.dig(:booking, :date)
+    @address = params.dig(:booking, :address)
     # limiter aux pigeons qui n'ont pas la date dans booking sur un booking validé
     @pigeons = Pigeon.near(@address, 10).geocoded
     @markers = @pigeons.map do |pigeon|
