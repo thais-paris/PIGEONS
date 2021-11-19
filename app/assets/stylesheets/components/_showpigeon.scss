@@ -1,29 +1,28 @@
 .nom_pigeon {
   margin-left: 70px;
-  margin-top: 30px;
+  margin-top: 27px;
   margin-bottom: 30px;
 }
 .pigeon_card {
-  height: 300px;
   width: 1200px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  margin-bottom: 50px;
   margin: auto;
   justify-content: space-between;
+  border-radius: 3px;
 }
 
 .photo_pigeon {
-  border: solid;
   height: 100%;
-  width: 400px;
+  width: 450px;
   object-fit: cover;
-
+  padding: 16px 16px 16px 16px;
+  border-radius: 20px;
 }
 
 .info_pigeon {
-  padding: 16px;
+  padding: 22px;
   flex-grow: 1;
 }
