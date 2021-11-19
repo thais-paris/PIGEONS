@@ -1,6 +1,8 @@
 .mapboxgl-ctrl-geocoder {
   display: flex;
   flex-direction: column;
+  font-family: inherit;
+  background-color: transparent;
   li {
     list-style: none;
   }
