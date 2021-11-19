@@ -23,17 +23,19 @@
 
       <%= simple_form_for @booking, url: "search", method: :get do |f| %>
         <div class="form-inputs">
-            <div class="form-group mb-3 flex-row">
+            <div class="mb-3">
               <%= f.input :address,
                     label: "A quelle adresse voulez-vous envoyer votre pigeon?",
                     input_html: { data: { geocoder_target: "address" }, class: "d-none" },
-                    wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
+                    wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } },
+                    class: 'form-control' %>
             </div>
             <div class="form-group mb-3">
               <%= f.input :date, label: "Quand voulez-vous qu'il arrive?", html5: true %>
             </div>
             <div class="form-actions d-flex justify-content-end">
-              <%= f.submit "Voir les pigeons disponibles", class: "btn btn-warning" %>            </div>
+              <%= f.submit "Voir les pigeons disponibles", class: "btn btn-warning" %>
+            </div>
         </div>
       <% end %>
 
