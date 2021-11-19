@@ -20,7 +20,7 @@
     <% @top_3.each do |pigeon| %>
 
       <% if pigeon.photo.attached? %>
-        <% image_string = "url('#{cl_image_path pigeon.photo.key, width: 500, crop: :fill}')" %>
+        <% image_string = "url('#{cl_image_path pigeon.photo.key, width: 400, height: 200, crop: :thumb, gravity: :face}')" %>
       <% else %>
           <% image_string = "url('#{image_path("pigeon-rect.png")}')" %>
       <% end %>
