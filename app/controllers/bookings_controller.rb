@@ -7,7 +7,9 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking.joins(:pigeon).where('pigeons.user_id = ?', current_user.id))
     authorize @bookings
     # @bookings = policy_scope(current_user.booked_pigeons)
-    @bookings = Booking.joins(:pigeon).where('pigeons.user_id = ?', current_user.id)
+    sql_query = "status ILIKE 'pending' AND pigeons.user_id = ?"
+    @bookings = Booking.joins(:pigeon).where(sql_query, current_user.id)
+    @bookings_all = Booking.joins(:pigeon).where('pigeons.user_id = ?', current_user.id)
   end
 
   def show
