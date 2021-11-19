@@ -7,8 +7,10 @@
     <p><strong> Prix : </strong><%= @pigeon.price_day %> euro </p>
     <p><strong> Race : </strong><%= @pigeon.breed %></p>
     <p><strong>Propriétaire : </strong><%= @pigeon.user.username %></p>
-    <%= link_to "edit", edit_pigeon_path(@pigeon), class: 'btn btn-warning' %>
-    <%= link_to "delete", pigeon_path(@pigeon), method: :delete, class: 'btn btn-warning' %>
+    <div class="w-100 d-flex justify-content-end">
+      <%= link_to "edit", edit_pigeon_path(@pigeon), class: 'btn btn-warning me-2' %>
+      <%= link_to "delete", pigeon_path(@pigeon), method: :delete, class: 'btn btn-warning' %>
+    </div>
   </div>
 </div>
 
